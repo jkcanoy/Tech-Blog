@@ -21,9 +21,11 @@ Comment.init(
       type: DataTypes.INTEGER,
       allowNull: false,
     },
-    art_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
+    comment_text: {
+      type: DataTypes.STRING,
+      validate: {
+        len: [3],
+      },
     },
   },
   {
