@@ -29,28 +29,42 @@ router.post("/login", async (req, res) => {
 });
 
 // logout
+router.get("/logout", (req, res) => {
+  if (req.session.logged_in) {
+    req.session.destroy(() => {
+      res.status(204).end();
+    });
+  } else {
+    res.status(404).end();
+  }
+});
 
-// update post route by id
-router.put("/:id", withAuth, async (req, res) => {
+// create user
+route.post("/", async (req, res) => {
   try {
-    const dbUserData = await User.update(
-      {
-        title: req.body.title,
-        content: req.body.content,
+    //check if username already exists
+    const dbUserData = await User.findOne({
+      where: {
+        username: req.body.username,
       },
-      {
-        where: {
-          id: req.params.id,
-        },
-      }
-    );
+    });
 
-    if (!dbUserData) {
-      res.status(404).json({ message: "No user found with this id" });
+    if (dbUserData) {
+      console.log("Username already exists");
+      res.status(409).json({ message: "Username already exists" });
       return;
     }
-    res.json(dbUserData);
-  } catch (err) {
+
+    const userData = await User.create(req.body);
+
+    req.session.save(() => {
+      req.session.user_id = userData.id;
+      req.session.username = userData.name;
+      req.session.loggedIn = true;
+
+      res.status(200).json(userData);
+    });
+  } catch {
     res.status(500).json(err);
   }
 });
