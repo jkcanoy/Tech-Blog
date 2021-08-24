@@ -54,3 +54,53 @@ router.get("/", withAuth, async (req, res) => {
 router.get("/new-form", (req, res) => {
   res.render("newpost");
 });
+
+// get single post with edit form
+router.get("/edit/:id", withAuth, async (req, res) => {
+  console.log(req.session);
+  // try catch block
+  try {
+    const dbPostData = await Post.findOne({
+      where: {
+        id: req.params.id,
+      },
+      attributes: ["id", "title", "content", "created_at"],
+      include: [
+        {
+          model: Comment,
+          attributes: [
+            "id",
+            "comment_text",
+            "post_id",
+            "user_id",
+            "created_at",
+          ],
+          include: {
+            model: User,
+            attributes: ["username"],
+          },
+        },
+        {
+          model: User,
+          attributes: ["username"],
+        },
+      ],
+    });
+    // if not post data with id return error
+    if (!dbPostData) {
+      res.status(404).json({ message: "No post found with this id" });
+      return;
+    }
+
+    const posts = dbPostData.get({ plain: true });
+    res.render("editpost", {
+      posts,
+      loggedIn: true,
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+module.exports = router;
