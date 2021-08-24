@@ -24,8 +24,8 @@ router.delete("/:id", withAuth, async (req, res) => {
         id: req.params.id,
       },
     });
-    if (!dbPostData) {
-      res.status(404).json({ message: "No Comment found with this id" });
+    if (!dbCommentData) {
+      res.status(404).json({ message: "No comment found with this id" });
       return;
     }
     res.json(dbCommentData);
@@ -48,8 +48,8 @@ router.put("/:id", withAuth, async (req, res) => {
       }
     );
 
-    if (!dbPostData) {
-      res.status(404).json({ message: "No Comment found with this id" });
+    if (!dbCommentData) {
+      res.status(404).json({ message: "No comment found with this id" });
       return;
     }
     res.json(dbCommentData);

@@ -15,3 +15,21 @@ router.post("/", withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+// Delete post route
+router.delete("/:id", withAuth, async (req, res) => {
+  try {
+    const dbPostData = await Post.destroy({
+      where: {
+        id: req.params.id,
+      },
+    });
+    if (!dbPostData) {
+      res.status(404).json({ message: "No post found with this id" });
+      return;
+    }
+    res.json(dbCommentData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
