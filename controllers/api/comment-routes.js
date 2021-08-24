@@ -16,7 +16,7 @@ router.post("/", withAuth, async (req, res) => {
   }
 });
 
-// Delete comment route
+// Delete comment route by id
 router.delete("/:id", withAuth, async (req, res) => {
   try {
     const dbCommentData = await Comment.destroy({
@@ -34,7 +34,7 @@ router.delete("/:id", withAuth, async (req, res) => {
   }
 });
 
-// Update comment route
+// Update comment route by id
 router.put("/:id", withAuth, async (req, res) => {
   try {
     const dbCommentData = await Comment.update(
