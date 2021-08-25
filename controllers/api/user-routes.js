@@ -40,7 +40,7 @@ router.get("/logout", (req, res) => {
 });
 
 // create user
-route.post("/", async (req, res) => {
+router.post("/", async (req, res) => {
   try {
     //check if username already exists
     const dbUserData = await User.findOne({
