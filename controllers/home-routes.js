@@ -96,7 +96,7 @@ router.get("/post/:id", withAuth, async (req, res) => {
     }
 
     const posts = dbPostData.get({ plain: true });
-    res.render("single-post", {
+    res.render("singlepost", {
       posts,
       currentUser: req.session.user_id,
       loggedIn: req.session.loggedIn,
