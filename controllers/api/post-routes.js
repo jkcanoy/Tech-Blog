@@ -30,6 +30,7 @@ router.delete("/:id", withAuth, async (req, res) => {
     }
     res.json(dbCommentData);
   } catch (err) {
+    console.log(err);
     res.status(500).json(err);
   }
 });

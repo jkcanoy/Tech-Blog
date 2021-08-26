@@ -1,11 +1,15 @@
 {{> post-content post}}
 
 {{#if loggedIn}}
-<form id="comment-form">
+<form class="comment-form" id="comment-form">
     <div class="form-group">
-        <label for="comment-body"><strong>Comments:</strong></label>
-        <textarea name="comment-body" class="form-control" rows="5"></textarea><br>
-        <button type="submit" class="btn btn-primary">Add Comment</button>
+        <form class="card-body comment-form" id="comment-form">
+
+            <label class="form-label">Comment</label>
+            <input id="comment" name="comment-body" class="form-input" />
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
     </div>
 </form>
 {{/if}}
