@@ -43,7 +43,7 @@ router.get("/", async (req, res) => {
 // If logged in render user dashboard, else render login page
 router.get("/login", (req, res) => {
   if (req.session.loggedIn) {
-    res.redirect("/dashboard");
+    res.redirect("/");
     return;
   }
   res.render("login");

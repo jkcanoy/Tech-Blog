@@ -30,7 +30,7 @@ router.post("/login", async (req, res) => {
 
 // logout
 router.get("/logout", (req, res) => {
-  if (req.session.logged_in) {
+  if (req.session.loggedIn) {
     req.session.destroy(() => {
       res.status(204).end();
     });
@@ -59,12 +59,13 @@ router.post("/", async (req, res) => {
 
     req.session.save(() => {
       req.session.user_id = userData.id;
-      req.session.username = userData.name;
+      req.session.username = userData.username;
       req.session.loggedIn = true;
 
       res.status(200).json(userData);
     });
-  } catch {
+  } catch (err) {
+    console.log(err);
     res.status(500).json(err);
   }
 });
