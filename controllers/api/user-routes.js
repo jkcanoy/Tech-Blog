@@ -10,7 +10,7 @@ router.post("/login", async (req, res) => {
         name: req.body.username,
       },
     });
-    if (!userData) {
+    if (!dbUserData) {
       res
         .status(400)
         .json({ message: "Incorrect email or password, please try again" });
