@@ -5,9 +5,9 @@ const { route } = require("../dashboard-routes");
 // User login route
 router.post("/login", async (req, res) => {
   try {
-    const dbUserData = User.findOne({
+    const dbUserData = await User.findOne({
       where: {
-        name: req.body.username,
+        username: req.body.username,
       },
     });
     if (!dbUserData) {
@@ -19,7 +19,7 @@ router.post("/login", async (req, res) => {
 
     req.session.save(() => {
       req.session.user_id = dbUserData.id;
-      req.session.username = dbUserData.name;
+      req.session.username = dbUserData.username;
       req.session.loggedIn = true;
       res.json({ message: "Your are now logged in" });
     });
