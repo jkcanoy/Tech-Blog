@@ -3,13 +3,11 @@
 {{#if loggedIn}}
 <form class="comment-form" id="comment-form">
     <div class="form-group">
-        <form class="card-body comment-form" id="comment-form">
+        <div>
+            <textarea name="comment-body"></textarea>
+        </div>
 
-            <label class="form-label">Comment</label>
-            <input id="comment" name="comment-body" class="form-input" />
-
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
+        <button type="submit" class="btn btn-primary">Submit Comment</button>
     </div>
 </form>
 {{/if}}

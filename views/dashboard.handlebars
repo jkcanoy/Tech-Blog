@@ -2,7 +2,7 @@
 <section>
     <div>
         <h2>Hello, {{username}}</h2>
-        <button type="submit" class="btn btn-primary" id="new-post">New Post</button>
+        <a href="/dashboard/new-form"><button class="btn btn-primary">New Post</button></a>
     </div>
     {{#each posts as |post|}}
     {{> dashboard-content post}}

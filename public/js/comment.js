@@ -2,7 +2,7 @@ async function commentFormHandler(event) {
   event.preventDefault();
 
   const comment_text = document
-    .querySelector('input[name="comment-body"]')
+    .querySelector('textarea[name="comment-body"]')
     .value.trim();
 
   const post_id = window.location.toString().split("/")[
@@ -26,7 +26,6 @@ async function commentFormHandler(event) {
       console.log("click");
     } else {
       alert(response.statusText);
-      document.querySelector("#comment-form").style.display = "block";
     }
   }
 }
