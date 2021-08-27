@@ -23,6 +23,7 @@ async function commentFormHandler(event) {
 
     if (response.ok) {
       document.location.reload();
+      console.log("click");
     } else {
       alert(response.statusText);
       document.querySelector("#comment-form").style.display = "block";

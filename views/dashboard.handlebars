@@ -1,14 +1,16 @@
 {{#if posts.length}}
 <section>
-    <h2>Hello, {{username}}</h2>
+    <div>
+        <h2>Hello, {{username}}</h2>
+        <button type="submit" class="btn btn-primary">New Post</button>
+    </div>
     {{#each posts as |post|}}
     {{> dashboard-content post}}
+    <a href="/dashboard/edit/{{post.id}}"><button class="btn btn-primary">Edit post</button></a>
     {{/each}}
 </section>
 {{/if}}
 
-<div>
-    <button type="submit" class="btn btn-primary">New Post</button>
-</div>
+
 
 <script src="/js/newpost.js"></script>
