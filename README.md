@@ -4,7 +4,9 @@
 
 ## Description
 
-Personal portfolio created using React and Bootstrap
+The Tech Blog is an application where developers can publish blog posts and comment on other user's blog posts.
+
+Users can sign up or login, where they will be directed to their dashboard. The dashboard contains the users' blog posts. Users are able to create new blog posts, or update and delete existing blog posts The homepage shows all blog posts made by the user and other developers. The blog post title redirects the user to the single blog post along with comments on the blog post. Users are able to view and add comments to the blog post.
 
 ## Table of Contents
 
@@ -17,24 +19,26 @@ Personal portfolio created using React and Bootstrap
 
 ## Installation
 
-1. Clone react-portfolio repo from GitHub.
+1. Clone Tech-Blog repo from GitHub.
 2. Access repo using the command line.
-3. In the terminal run `npm i`
+3. In the terminal run `npm i`.
 
 ## Usage
 
-1. To run application locally access react-portfolio using command-line
-2. Run `npm start`.
+1. To run application locally access Tech-Blog using command-line.
+2. Copy the schema into a MySQL database and run.
+3. Run `npm run seed` to seed the database.
+4. Run `npm run watch` to run the application in `localhost:3001`
 
 OR
 
-1. Access the deployed GitHub Pages [here](https://jkcanoy.github.io/react-portfolio/)
+1. Access the deployed Heroku Pages [here](https://jkcanoy.github.io/react-portfolio/)
 
 Demo
 
-The following screenshot shows the web applications appearance
+The following gif shows the web applications appearance and functionality
 
-![Screenshot of the application's homepage](./public/portfolioScreen.png)
+![Screenshot of the application's homepage](./public/images/TechBlog.gif)
 
 ## License
 
