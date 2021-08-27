@@ -101,6 +101,7 @@ router.get("/post/:id", withAuth, async (req, res) => {
       currentUser: req.session.user_id,
       loggedIn: req.session.loggedIn,
     });
+    console.log({ posts });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);

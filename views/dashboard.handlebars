@@ -1,6 +1,6 @@
 {{#if posts.length}}
 <section>
-    <h1>Hello, {{user.username}}</h1>
+    <h1>Hello, {{posts.user.username}}</h1>
     {{#each posts as |post|}}
     {{> dashboard-content post}}
     {{/each}}
