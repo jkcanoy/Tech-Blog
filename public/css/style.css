@@ -1,0 +1,66 @@
+:root {
+  --prim: #f0e5cf;
+  --sec: #4b6587;
+  --tert: #f7f6f2;
+  --quat: #c8c6c6;
+}
+
+* {
+  font-family: monospace;
+}
+
+header {
+  background-color: var(--sec);
+}
+
+body {
+  background-color: var(--prim) !important;
+}
+
+.site-footer {
+  align-items: center;
+  background-color: var(--sec);
+  height: 5rem;
+  color: var(--tert);
+  font-size: 2rem;
+}
+
+header a {
+  text-decoration: none !important;
+  color: var(--tert) !important;
+}
+
+.site-title {
+  font-size: 3rem;
+}
+
+nav {
+  font-size: 2rem;
+}
+
+.card-header {
+  background-color: var(--sec) !important;
+}
+
+.card-header a {
+  font-size: 2rem !important;
+  color: var(--quat);
+}
+
+.card-body {
+  background-color: var(--quat);
+}
+
+textarea {
+  vertical-align: top;
+}
+
+button {
+  background-color: var(--tert) !important;
+  border-color: var(--tert) !important;
+  color: #000000 !important;
+}
+
+cite {
+  margin-top: 1rem;
+}

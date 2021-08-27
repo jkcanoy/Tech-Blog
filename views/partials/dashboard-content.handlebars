@@ -1,7 +1,8 @@
-<div class="card">
+<div class="card mt-2 d-flex">
     <div class="card-header">
         <h5><a class="link" href="/post/{{id}}">{{title}}</a></h5>
         <p>created on {{format_date created_at}}</p>
+        <a href="/dashboard/edit/{{post.id}}"><button class="btn btn-primary">Edit post</button></a>
     </div>
     <div class="card-body">
         {{content}}
